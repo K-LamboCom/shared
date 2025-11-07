@@ -1,4 +1,4 @@
-export interface PaginationResult<T> {
+export interface BasePagination<T> {
   result: T[];
   meta: {
     total: number;

@@ -7,7 +7,7 @@ import {
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { Observable, map } from 'rxjs';
-import { ResponseBase } from '../constant/response_base';
+import { ResponseBase } from '../constants/response_base';
 
 export const BypassInterceptor = () => SetMetadata('bypassInterceptor', true);
 

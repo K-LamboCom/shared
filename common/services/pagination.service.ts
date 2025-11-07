@@ -1,8 +1,7 @@
-// pagination.service.ts
 import { Injectable } from '@nestjs/common';
 import { FindManyOptions, ObjectLiteral, Repository } from 'typeorm';
-import { PaginationResult } from '../interface/pagination-result.interface';
-import { PaginationQueryDto } from '../dto/pagination-query.dto';
+import { PaginationQueryDto } from '../../core/dtos/pagination-query.dto';
+import { BasePagination } from '../../core/interfaces/base-pagination.interface';
 
 @Injectable()
 export class PaginationService {
@@ -23,7 +22,7 @@ export class PaginationService {
     repository: Repository<T>,
     paginationDto: PaginationQueryDto,
     options: FindManyOptions<T> = {},
-  ): Promise<PaginationResult<T>> {
+  ): Promise<BasePagination<T>> {
     const { page = 1, perPage = this.DEFAULT_PER_PAGE } = paginationDto;
 
     const [data, total] = await repository.findAndCount({
