@@ -6,12 +6,12 @@ import {
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { Observable } from 'rxjs';
+import { UserPermission } from 'src/shared/core/enums/user-permission.enum';
+import { UserRole } from 'src/shared/core/enums/user-role.enum';
 import {
   PERMISSIONS_KEY,
   ROLES_KEY,
-} from 'src/shared/common/constants/meta-data';
-import { UserPermission } from 'src/shared/core/enums/user-permission.enum';
-import { UserRole } from 'src/shared/core/enums/user-role.enum';
+} from 'src/shared/modules/auth/auth-meta-data';
 
 @Injectable()
 export class RolesPermissionsGuard implements CanActivate {
@@ -50,6 +50,7 @@ export class RolesPermissionsGuard implements CanActivate {
       const hasAllPermissions = requiredPermission.every((p) =>
         userPermissions.includes(p),
       );
+
       if (!hasAllPermissions) {
         throw new ForbiddenException('Forbidden: missing permissions');
       }
