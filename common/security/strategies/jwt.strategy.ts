@@ -12,8 +12,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   // Call auth service in here
-  // validate(payload: any): Promise<any> {
-  //   console.log(payload);
-  //   return payload;
-  // }
+  validate(payload: any): Promise<any> {
+    // console.log(payload);
+    return payload;
+  }
 }
