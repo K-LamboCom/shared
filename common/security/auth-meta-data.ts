@@ -10,5 +10,5 @@ export const Public = () => SetMetadata(IS_PUBLIC_KEY, true);
 
 export const Roles = (...Roles: UserRole[]) => SetMetadata(ROLES_KEY, Roles);
 
-export const Permissions = (...Permissions: UserPermission[]) =>
+export const RequirePermissions = (...Permissions: UserPermission[]) =>
   SetMetadata(PERMISSIONS_KEY, Permissions);

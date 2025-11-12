@@ -8,10 +8,7 @@ import { Reflector } from '@nestjs/core';
 import { Observable } from 'rxjs';
 import { UserPermission } from 'src/shared/core/enums/user-permission.enum';
 import { UserRole } from 'src/shared/core/enums/user-role.enum';
-import {
-  PERMISSIONS_KEY,
-  ROLES_KEY,
-} from 'src/shared/modules/auth/auth-meta-data';
+import { PERMISSIONS_KEY, ROLES_KEY } from '../auth-meta-data';
 
 @Injectable()
 export class RolesPermissionsGuard implements CanActivate {
