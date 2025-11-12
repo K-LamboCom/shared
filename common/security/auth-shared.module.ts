@@ -2,8 +2,6 @@ import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
-import { ApiFetch } from '../utils/api-fetch';
-import { AuthSharedService } from './auth-shared.service';
 import { JwtStrategy } from './strategies/jwt.strategy';
 
 @Module({
@@ -16,7 +14,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
     }),
   ],
   // providers: [AuthSharedService, LocalStrategy, JwtStrategy, ApiFetch],
-  providers: [AuthSharedService, ApiFetch, JwtStrategy],
-  exports: [AuthSharedService, JwtModule],
+  providers: [JwtStrategy],
+  exports: [JwtModule],
 })
 export class AuthSharedModule {}
